@@ -1,0 +1,6 @@
+*.pth
+*.zip
+*.wav
+*.pyc
+*.flac
+.idea/*
