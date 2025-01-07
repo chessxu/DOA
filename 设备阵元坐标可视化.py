@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # 读取Excel文件
 # 请根据实际情况修改文件路径和文件名
-file_path = 'D:\\project\DOA\\4-MEMS坐标.xlsx'  # 例如：'data.xlsx'
+file_path = '/home/ubuntu/project/DOA/手撕代码/4-MEMS坐标.xlsx'  # 例如：'data.xlsx'
 df = pd.read_excel(file_path)
 
 # 假设Excel中有两个列名为 'x' 和 'y'，存储坐标点

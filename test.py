@@ -23,11 +23,12 @@ def emd_decompose(signal):
 
 # 进行希尔伯特变换
 def hilbert_transform(imfs):
-    analytic_signals = []
-    for imf in imfs:
-        analytic_signal = hilbert(imf)
-        analytic_signals.append(analytic_signal)
-    return analytic_signals
+    # analytic_signals = []
+    # for imf in imfs:
+    #     analytic_signal = hilbert(imf)
+    #     analytic_signals.append(analytic_signal)
+    # return analytic_signals
+    return hilbert(imfs)
 
 
 # 绘制IMFs和对应的包络线
@@ -48,12 +49,12 @@ def plot_imfs(t, imfs, analytic_signals):
 # 主程序
 t, signal = generate_signal()
 
-# 1. 对信号进行EMD分解
-imfs = emd_decompose(signal)
+# # 1. 对信号进行EMD分解
+# imfs = emd_decompose(signal)
 
 # 2. 对每个IMF进行希尔伯特变换
-analytic_signals = hilbert_transform(imfs)
-print(analytic_signals)
+analytic_signals = hilbert_transform(signal)
+print(analytic_signals.shape)
 
-# 3. 绘制IMFs及其包络线
-plot_imfs(t, imfs, analytic_signals)
+# # 3. 绘制IMFs及其包络线
+plot_imfs(t, analytic_signals)

@@ -13,7 +13,7 @@ dd = 0.5             # 阵元间距
 d = np.arange(0, N * dd, dd)  # 阵元位置
 
 # 构造方向矢量
-A = np.exp(-1j * 2 * np.pi * np.outer(d, np.sin(theta * derad)))
+A = np.exp(-1j * 2 * np.pi * np.outer(d, np.sin(theta * derad)))  #! 真实场景应用修改这个导向矩阵即可
 
 # 构建信号模型
 S = np.random.randn(M, K)  # 信源信号

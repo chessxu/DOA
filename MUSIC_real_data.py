@@ -4,8 +4,6 @@ import wave
 import pandas as pd
 import os
 import torchaudio
-from scipy.signal import hilbert
-from PyEMD import EMD
 
 from utils import *
 
@@ -35,24 +33,15 @@ def load_wav_files():
     filename = "/home/ubuntu/project/DOA/手撕代码/data/record 10-27-58 CH33~CH64.wav"
     wf, sr = torchaudio.load(filename)
     signals2 = wf.numpy()
-    signals = np.concatenate((signals1, signals2), axis=0)[:, :512]
-
-    # 对信号做希尔伯特黄变换
-    emd = EMD()
-    imfs = emd(signals)
-
-    analytic_signals = []
-    for imf in imfs:
-        analytic_signal = hilbert(imf)
-        analytic_signals.append(analytic_signal)
-
-    return analytic_signal, sr
+    signals = np.concatenate((signals1, signals2), axis=0)
+    return signals, sr
 
 
 # 3. 计算协方差矩阵
 def compute_covariance_matrix(signals):
     # 计算协方差矩阵
-    Rxx = np.dot(signals, signals.conj().T) / signals.shape[1]
+    Rxx = np.dot(signals, signals.conj().T) / 512
+    # Rxx = np.dot(signals[:, :512], signals[:, :512].conj().T) / 512
     return Rxx
 
 
