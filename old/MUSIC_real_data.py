@@ -12,7 +12,7 @@ derad = np.pi / 180  # 角度 -> 弧度
 
 # 1. 设置螺旋阵列几何参数 (仅x, y坐标)
 def read_spiral_array():
-    file_path = '/home/ubuntu/project/DOA/手撕代码/4-MEMS坐标.xlsx'  # 例如：'data.xlsx'
+    file_path = '/old/4-MEMS坐标.xlsx'  # 例如：'data.xlsx'
     df = pd.read_excel(file_path)
 
     # 假设Excel中有两个列名为 'x' 和 'y'，存储坐标点
@@ -26,11 +26,11 @@ def read_spiral_array():
 
 # 2. 读取.wav文件数据
 def load_wav_files():
-    filename = "/home/ubuntu/project/DOA/手撕代码/data/record 10-27-58 CH01~CH32.wav"
+    filename = "/data/record 10-27-58 CH01~CH32.wav"
     wf, sr = torchaudio.load(filename)
     signals1 = wf.numpy()
 
-    filename = "/home/ubuntu/project/DOA/手撕代码/data/record 10-27-58 CH33~CH64.wav"
+    filename = "/data/record 10-27-58 CH33~CH64.wav"
     wf, sr = torchaudio.load(filename)
     signals2 = wf.numpy()
     signals = np.concatenate((signals1, signals2), axis=0)
