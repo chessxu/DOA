@@ -5,7 +5,7 @@ import os
 import numpy as np
 
 def waveform():
-    root_dir = "data/single_channel/BadmintonCourt2/"
+    root_dir = "data/single_channel/BadmintonCourt2/"  #! 音频路径
     source_type = os.listdir(root_dir)
 
     for item in source_type:
