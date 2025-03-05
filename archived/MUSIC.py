@@ -1,5 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+# #新增加的两行
+import matplotlib
+matplotlib.rc("font", family='SimHei, STIXGeneral')
 
 # MUSIC for Uniform Linear Array
 derad = np.pi / 180  # 角度->弧度

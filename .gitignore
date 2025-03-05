@@ -3,4 +3,5 @@
 *.wav
 *.pyc
 *.flac
+*.png
 .idea/*
