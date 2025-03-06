@@ -98,7 +98,7 @@ frequencies = [1000]  # 信号频率（单位：Hz）
 search_grid = np.linspace(0, 360, 361)  # 搜索方向网格（单位：度）
 speed_of_sound = 34300  # 声速，单位：cm/s
 
-sampling_rate = 8000  # 采样率，单位：Hz
+sampling_rate = 48000  # 采样率，单位：Hz
 num_samples = 1024  # 每个阵元的采样点数
 
 # 生成阵列

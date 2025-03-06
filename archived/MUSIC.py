@@ -12,12 +12,17 @@ theta = np.array([-30, -10, 0, 20, 40, 60])  # 待估计角度
 snr = 10             # 信噪比
 K = 512              # 快拍数
 
-dd = 0.5             # 阵元间距
+dd = 0.5             # 阵元间距, 阵元间距0.5, 默认假设波长为1
 d = np.arange(0, N) * dd
-A = np.exp(-1j * 2 * np.pi * d.reshape(-1, 1) @ np.sin(theta * derad).reshape(1, -1))  # 方向矢量
+# 阵元间距0.5, 默认假设波长为1, 因此此处不需要除以波长
+A = np.exp(-1j * 2 * np.pi * d.reshape(-1, 1) @ np.sin(theta * derad).reshape(1, -1))  # 方向矢量, 此处本应该除以波长, 但是省略了
 
 # 构建信号模型
-S = np.random.randn(M, K)  # 信源信号，入射信号
+S = np.random.randn(M, K)  # 信源信号，入射信号, 窄带信号, 所以信源信号可以直接是时域表达
+
+# 生成信号
+# S = (np.random.randn(M, K) + 1j * np.random.randn(M, K)) / np.sqrt(2)  # 如果不是窄带信号, 那就要这么生成源信号
+
 X = A @ S  # 构造接收信号
 X1 = X + np.random.randn(*X.shape) * 10 ** (-snr / 20)  # 将白色高斯噪声添加到信号中
 
